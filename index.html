@@ -4,14 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Windows of Opportunity: What Not to Miss at Each Stage of Your Child's Development</title>
-  <script>
-    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="Ii init Di qi Sr Bi Zi Pi capture calculateEventProperties Yi register register_once register_for_session unregister unregister_for_session Xi getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync Ji identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty Wi Vi createPersonProfile setInternalOrTestUser Gi Fi Ki opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing $i debug Tr Ui getPageViewId captureTraceFeedback captureTraceMetric Ri".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('phc_kXk6ssBN25j26MLMZ537j3LTG6QbdGFbHmKwP6MHycjX', {
-        api_host: 'https://us.i.posthog.com',
-        defaults: '2026-01-30',
-        person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-    })
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -179,12 +171,77 @@ p.body strong{color:var(--navy);font-weight:600;}
   .research-cards{grid-template-columns:1fr;}
   .brain-status{grid-template-columns:1fr 1fr;}
   .nav-links{display:none;}
-  .content-wrap{padding:0 20px;}
-  .hero{padding:52px 20px 48px;}
+  .content-wrap{padding:0 24px;}
+  .hero{padding:52px 24px 48px;}
   .period-body{padding:24px 20px;}
-  .pillars-inner{padding:0 20px;}
-  .sources-section{padding:40px 20px;}
-  .conclusion-inner{padding:0 20px;}
+  .period-header{padding:22px 20px;}
+  .pillars-inner{padding:0 24px;}
+  .sources-section{padding:40px 24px;}
+  .conclusion-inner{padding:0 24px;}
+  .conclusion-quote{padding:24px 20px;}
+  .hero-meta{flex-wrap:wrap;gap:16px;}
+  .hero-stat{border-right:none;padding-right:0;margin-right:0;}
+}
+
+@media(max-width:480px){
+  .topbar-inner{font-size:10px;letter-spacing:0;}
+  .nav-inner{padding:0 16px;}
+  .nav-logo{font-size:13px;}
+
+  .hero{padding:80px 16px 40px;}
+  .hero-tag{font-size:9px;letter-spacing:1px;padding:4px 10px;}
+  .hero-title{font-size:26px;letter-spacing:-.5px;}
+  .hero-subtitle{font-size:15px;margin-bottom:24px;}
+  .hero-stat-n{font-size:24px;}
+  .hero-stat-l{font-size:9px;}
+  .hero-meta{gap:12px;padding-top:18px;}
+
+  .content-wrap{padding:0 16px;}
+  .article-section{padding:40px 0;}
+
+  h2.art-h{font-size:22px;}
+  h3.sub-h{font-size:17px;margin:24px 0 10px;}
+  p.lead{font-size:16px;}
+  p.body{font-size:15px;}
+
+  .section-label{font-size:9px;letter-spacing:2px;}
+  .pull-quote p{font-size:15px;}
+  .callout p{font-size:14px;}
+  .research-note p{font-size:13px;}
+
+  .period-header{padding:18px 16px;}
+  .period-header::before{font-size:64px;right:12px;}
+  .period-title{font-size:19px;}
+  .period-subtitle{font-size:12px;}
+  .period-age{font-size:9px;letter-spacing:2px;}
+  .period-body{padding:20px 16px;}
+  .period-block{margin-bottom:40px;padding-bottom:40px;}
+
+  .brain-status{grid-template-columns:1fr;padding:12px 16px;gap:12px;}
+  .status-item{padding:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:10px;}
+  .status-item:last-child{border-bottom:none;padding-bottom:0;}
+
+  .do-label{font-size:9px;letter-spacing:2px;margin:20px 0 10px;}
+
+  .pillars-section{padding:48px 0;}
+  .pillars-inner{padding:0 16px;}
+  .pillars-grid{grid-template-columns:1fr;}
+  .pillars-head h2{font-size:22px;}
+  .pillars-head p{font-size:14px;}
+  .pillar-card{padding:18px;}
+  .pillar-title{font-size:15px;}
+  .pillar-text{font-size:13px;}
+
+  .conclusion{padding:48px 0;}
+  .conclusion-inner{padding:0 16px;}
+  .conclusion h2{font-size:22px;}
+  .conclusion p{font-size:15px;}
+  .conclusion-quote{padding:20px 16px;}
+  .conclusion-quote p{font-size:18px;}
+
+  .sources-section{padding:32px 16px;}
+  .sources-title{font-size:16px;}
+  .source-item{font-size:10px;padding:10px 12px;}
 }
 </style>
 </head>
@@ -762,143 +819,5 @@ const barObs = new IntersectionObserver((entries) => {
 },{threshold:0.6});
 fills.forEach(f => barObs.observe(f));
 </script>
-  <script>
-(function () {
-  var SESSION_START_KEY = "ph_session_start";
-  var TEN_HOURS_IN_MS = 10 * 60 * 60 * 1000;
-  var UTM_KEYS = [
-    "utm_source",
-    "utm_medium",
-    "utm_campaign",
-    "utm_term",
-    "utm_content",
-    "fb",
-    "X",
-  ];
-
-  var hasSentSessionEnd = false;
-
-  function getSessionStartTimestamp() {
-    var raw = window.localStorage.getItem(SESSION_START_KEY);
-    if (!raw) return null;
-    var parsed = Number(raw);
-    return Number.isFinite(parsed) ? parsed : null;
-  }
-
-  function startSessionIfNeeded() {
-    var existing = getSessionStartTimestamp();
-    if (existing !== null) return existing;
-
-    var startedAt = Date.now();
-    window.localStorage.setItem(SESSION_START_KEY, String(startedAt));
-    return startedAt;
-  }
-
-  function saveUtmParamsFromSearch(search) {
-    var params = new URLSearchParams(search);
-    UTM_KEYS.forEach(function (key) {
-      var value = params.get(key);
-      if (value && value.trim()) {
-        window.localStorage.setItem(key, value);
-      }
-    });
-  }
-
-  function getStoredUtmParams() {
-    var result = {};
-    UTM_KEYS.forEach(function (key) {
-      var value = window.localStorage.getItem(key);
-      if (value && value.trim()) {
-        result[key] = value;
-      }
-    });
-    return result;
-  }
-
-  function clearSessionStorage() {
-    window.localStorage.removeItem(SESSION_START_KEY);
-    UTM_KEYS.forEach(function (key) {
-      window.localStorage.removeItem(key);
-    });
-  }
-
-  function getSessionDurationSeconds(start, end) {
-    return Math.round(Math.max(0, end - start) / 1000);
-  }
-
-  function formatDurationHMR(seconds) {
-    var safe = Math.max(0, Math.round(seconds));
-    var h = Math.floor(safe / 3600);
-    var m = Math.floor((safe % 3600) / 60);
-    var s = safe % 60;
-
-    var parts = [];
-    if (h > 0) parts.push(h + "h");
-    if (m > 0 || h > 0) parts.push(m + "m");
-    parts.push(s + "s");
-    return parts.join(" ");
-  }
-
-  function sendSessionEnd() {
-    if (hasSentSessionEnd) return;
-    if (!window.posthog || typeof window.posthog.capture !== "function") return;
-
-    hasSentSessionEnd = true;
-
-    var now = Date.now();
-    var startedAt = getSessionStartTimestamp() || now;
-    var durationSec = getSessionDurationSeconds(startedAt, now);
-    var utm = getStoredUtmParams();
-
-    window.posthog.capture("session_end", {
-      session_duration_seconds: durationSec,
-      session_duration_hmr: formatDurationHMR(durationSec),
-      page_url: window.location.href,
-      page_path: window.location.pathname,
-      referrer: document.referrer || undefined,
-      utm_source: utm.utm_source,
-      utm_medium: utm.utm_medium,
-      utm_campaign: utm.utm_campaign,
-      utm_term: utm.utm_term,
-      utm_content: utm.utm_content,
-      fb: utm.fb,
-      X: utm.X,
-    });
-
-    clearSessionStorage();
-  }
-
-  function startTracking() {
-    startSessionIfNeeded();
-    saveUtmParamsFromSearch(window.location.search);
-
-    function onVisibilityChange() {
-      if (document.visibilityState === "hidden") {
-        sendSessionEnd();
-      }
-    }
-
-    window.addEventListener("beforeunload", sendSessionEnd);
-    window.addEventListener("pagehide", sendSessionEnd);
-    document.addEventListener("visibilitychange", onVisibilityChange);
-    window.setTimeout(sendSessionEnd, TEN_HOURS_IN_MS);
-  }
-
-  function waitForPosthogAndStart(retries) {
-    if (window.posthog && typeof window.posthog.capture === "function") {
-      startTracking();
-      return;
-    }
-
-    if (retries <= 0) return;
-    window.setTimeout(function () {
-      waitForPosthogAndStart(retries - 1);
-    }, 300);
-  }
-
-  waitForPosthogAndStart(20);
-})();
-</script>
-
 </body>
 </html>
