@@ -762,5 +762,143 @@ const barObs = new IntersectionObserver((entries) => {
 },{threshold:0.6});
 fills.forEach(f => barObs.observe(f));
 </script>
+  <script>
+(function () {
+  var SESSION_START_KEY = "ph_session_start";
+  var TEN_HOURS_IN_MS = 10 * 60 * 60 * 1000;
+  var UTM_KEYS = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "fb",
+    "X",
+  ];
+
+  var hasSentSessionEnd = false;
+
+  function getSessionStartTimestamp() {
+    var raw = window.localStorage.getItem(SESSION_START_KEY);
+    if (!raw) return null;
+    var parsed = Number(raw);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  function startSessionIfNeeded() {
+    var existing = getSessionStartTimestamp();
+    if (existing !== null) return existing;
+
+    var startedAt = Date.now();
+    window.localStorage.setItem(SESSION_START_KEY, String(startedAt));
+    return startedAt;
+  }
+
+  function saveUtmParamsFromSearch(search) {
+    var params = new URLSearchParams(search);
+    UTM_KEYS.forEach(function (key) {
+      var value = params.get(key);
+      if (value && value.trim()) {
+        window.localStorage.setItem(key, value);
+      }
+    });
+  }
+
+  function getStoredUtmParams() {
+    var result = {};
+    UTM_KEYS.forEach(function (key) {
+      var value = window.localStorage.getItem(key);
+      if (value && value.trim()) {
+        result[key] = value;
+      }
+    });
+    return result;
+  }
+
+  function clearSessionStorage() {
+    window.localStorage.removeItem(SESSION_START_KEY);
+    UTM_KEYS.forEach(function (key) {
+      window.localStorage.removeItem(key);
+    });
+  }
+
+  function getSessionDurationSeconds(start, end) {
+    return Math.round(Math.max(0, end - start) / 1000);
+  }
+
+  function formatDurationHMR(seconds) {
+    var safe = Math.max(0, Math.round(seconds));
+    var h = Math.floor(safe / 3600);
+    var m = Math.floor((safe % 3600) / 60);
+    var s = safe % 60;
+
+    var parts = [];
+    if (h > 0) parts.push(h + "h");
+    if (m > 0 || h > 0) parts.push(m + "m");
+    parts.push(s + "s");
+    return parts.join(" ");
+  }
+
+  function sendSessionEnd() {
+    if (hasSentSessionEnd) return;
+    if (!window.posthog || typeof window.posthog.capture !== "function") return;
+
+    hasSentSessionEnd = true;
+
+    var now = Date.now();
+    var startedAt = getSessionStartTimestamp() || now;
+    var durationSec = getSessionDurationSeconds(startedAt, now);
+    var utm = getStoredUtmParams();
+
+    window.posthog.capture("session_end", {
+      session_duration_seconds: durationSec,
+      session_duration_hmr: formatDurationHMR(durationSec),
+      page_url: window.location.href,
+      page_path: window.location.pathname,
+      referrer: document.referrer || undefined,
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+      utm_term: utm.utm_term,
+      utm_content: utm.utm_content,
+      fb: utm.fb,
+      X: utm.X,
+    });
+
+    clearSessionStorage();
+  }
+
+  function startTracking() {
+    startSessionIfNeeded();
+    saveUtmParamsFromSearch(window.location.search);
+
+    function onVisibilityChange() {
+      if (document.visibilityState === "hidden") {
+        sendSessionEnd();
+      }
+    }
+
+    window.addEventListener("beforeunload", sendSessionEnd);
+    window.addEventListener("pagehide", sendSessionEnd);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    window.setTimeout(sendSessionEnd, TEN_HOURS_IN_MS);
+  }
+
+  function waitForPosthogAndStart(retries) {
+    if (window.posthog && typeof window.posthog.capture === "function") {
+      startTracking();
+      return;
+    }
+
+    if (retries <= 0) return;
+    window.setTimeout(function () {
+      waitForPosthogAndStart(retries - 1);
+    }, 300);
+  }
+
+  waitForPosthogAndStart(20);
+})();
+</script>
+
 </body>
 </html>
