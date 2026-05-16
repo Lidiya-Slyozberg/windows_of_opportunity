@@ -162,6 +162,9 @@ p.body strong{color:var(--navy);font-weight:600;}
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
+@media(hover:none){
+  .reveal{opacity:1;transform:none;}
+}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;}
