@@ -172,13 +172,17 @@ p.body strong{color:var(--navy);font-weight:600;}
   .brain-status{grid-template-columns:1fr 1fr;}
   .nav-links{display:none;}
   .content-wrap{padding:0 24px;}
-  .hero{padding:52px 24px 48px;}
-  .period-body{padding:24px 20px;}
-  .period-header{padding:22px 20px;}
+  .hero{padding:44px 24px 36px;}
+  .period-body{padding:20px 18px;}
+  .period-header{padding:20px 18px;}
+  .period-block{margin-bottom:32px;padding-bottom:32px;}
+  .article-section{padding:40px 0;}
   .pillars-inner{padding:0 24px;}
-  .sources-section{padding:40px 24px;}
+  .pillars-section{padding:48px 0;}
+  .sources-section{padding:36px 24px;}
+  .conclusion{padding:48px 0;}
   .conclusion-inner{padding:0 24px;}
-  .conclusion-quote{padding:24px 20px;}
+  .conclusion-quote{padding:24px 20px;margin-top:32px;}
   .hero-meta{flex-wrap:wrap;gap:16px;}
   .hero-stat{border-right:none;padding-right:0;margin-right:0;}
 }
@@ -188,59 +192,75 @@ p.body strong{color:var(--navy);font-weight:600;}
   .nav-inner{padding:0 16px;}
   .nav-logo{font-size:13px;}
 
-  .hero{padding:80px 16px 40px;}
+  /* Hero — убираем лишний верхний паддинг */
+  .hero{padding:36px 16px 32px;}
   .hero-tag{font-size:9px;letter-spacing:1px;padding:4px 10px;}
-  .hero-title{font-size:26px;letter-spacing:-.5px;}
-  .hero-subtitle{font-size:15px;margin-bottom:24px;}
-  .hero-stat-n{font-size:24px;}
+  .hero-title{font-size:24px;letter-spacing:-.5px;margin-bottom:12px;}
+  .hero-subtitle{font-size:15px;margin-bottom:20px;}
+  .hero-stat-n{font-size:22px;}
   .hero-stat-l{font-size:9px;}
-  .hero-meta{gap:12px;padding-top:18px;}
+  .hero-meta{gap:10px;padding-top:14px;}
 
+  /* Основные секции */
   .content-wrap{padding:0 16px;}
-  .article-section{padding:40px 0;}
+  .article-section{padding:28px 0;}
 
-  h2.art-h{font-size:22px;}
-  h3.sub-h{font-size:17px;margin:24px 0 10px;}
-  p.lead{font-size:16px;}
-  p.body{font-size:15px;}
+  h2.art-h{font-size:21px;margin-bottom:14px;}
+  h3.sub-h{font-size:17px;margin:18px 0 8px;}
+  p.lead{font-size:15px;margin-bottom:14px;}
+  p.body{font-size:14px;margin-bottom:12px;line-height:1.75;}
 
-  .section-label{font-size:9px;letter-spacing:2px;}
-  .pull-quote p{font-size:15px;}
-  .callout p{font-size:14px;}
+  /* Блоки с контентом */
+  .section-label{font-size:9px;letter-spacing:2px;margin-bottom:8px;}
+  .pull-quote{padding:12px 16px;margin:18px 0;}
+  .pull-quote p{font-size:14px;}
+  .callout{padding:14px 16px;margin:16px 0;}
+  .callout p{font-size:13px;}
+  .research-note{padding:14px 16px;margin:16px 0;}
   .research-note p{font-size:13px;}
 
-  .period-header{padding:18px 16px;}
-  .period-header::before{font-size:64px;right:12px;}
-  .period-title{font-size:19px;}
+  /* Карточки периодов — главный источник пробелов */
+  .period-block{margin-bottom:24px;padding-bottom:24px;}
+  .period-header{padding:16px 14px;}
+  .period-header::before{font-size:56px;right:10px;}
+  .period-title{font-size:18px;}
   .period-subtitle{font-size:12px;}
   .period-age{font-size:9px;letter-spacing:2px;}
-  .period-body{padding:20px 16px;}
-  .period-block{margin-bottom:40px;padding-bottom:40px;}
+  .period-body{padding:16px 14px;}
 
-  .brain-status{grid-template-columns:1fr;padding:12px 16px;gap:12px;}
-  .status-item{padding:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:10px;}
+  /* Статус-бары мозга */
+  .brain-status{grid-template-columns:1fr;padding:10px 14px;gap:10px;}
+  .status-item{padding:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:8px;}
   .status-item:last-child{border-bottom:none;padding-bottom:0;}
 
-  .do-label{font-size:9px;letter-spacing:2px;margin:20px 0 10px;}
+  .do-label{font-size:9px;letter-spacing:2px;margin:14px 0 8px;}
 
-  .pillars-section{padding:48px 0;}
+  /* Исследовательские карточки */
+  .research-cards{gap:12px;margin:16px 0;}
+  .rc{padding:14px;}
+
+  /* Четыре столпа */
+  .pillars-section{padding:32px 0;}
   .pillars-inner{padding:0 16px;}
-  .pillars-grid{grid-template-columns:1fr;}
-  .pillars-head h2{font-size:22px;}
+  .pillars-head{margin-bottom:20px;}
+  .pillars-grid{grid-template-columns:1fr;gap:12px;}
+  .pillars-head h2{font-size:21px;margin-bottom:8px;}
   .pillars-head p{font-size:14px;}
-  .pillar-card{padding:18px;}
+  .pillar-card{padding:16px;}
   .pillar-title{font-size:15px;}
   .pillar-text{font-size:13px;}
 
-  .conclusion{padding:48px 0;}
+  /* Заключение */
+  .conclusion{padding:32px 0;}
   .conclusion-inner{padding:0 16px;}
-  .conclusion h2{font-size:22px;}
-  .conclusion p{font-size:15px;}
-  .conclusion-quote{padding:20px 16px;}
-  .conclusion-quote p{font-size:18px;}
+  .conclusion h2{font-size:21px;margin-bottom:14px;}
+  .conclusion p{font-size:14px;margin-bottom:12px;}
+  .conclusion-quote{margin-top:24px;padding:18px 16px;}
+  .conclusion-quote p{font-size:16px;}
 
-  .sources-section{padding:32px 16px;}
-  .sources-title{font-size:16px;}
+  /* Источники */
+  .sources-section{padding:24px 16px;}
+  .sources-title{font-size:16px;margin-bottom:16px;}
   .source-item{font-size:10px;padding:10px 12px;}
 }
 </style>
@@ -376,7 +396,7 @@ p.body strong{color:var(--navy);font-weight:600;}
     <div class="reveal">
       <p class="section-label">By Age</p>
       <h2 class="art-h">Seven periods, seven sets of priorities</h2>
-      <p class="body" style="margin-bottom:48px;">Each period below describes what is happening in the brain, what to prioritize, and the American context most relevant to that stage.</p>
+      <p class="body" style="margin-bottom:clamp(16px, 4vw, 48px);">Each period below describes what is happening in the brain, what to prioritize, and the American context most relevant to that stage.</p>
 
       <!-- PERIOD 1 -->
       <div class="period-block">
